@@ -1,0 +1,70 @@
+<!-- student-list.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Danh sách học sinh</title>
+  <style>
+    *{
+      margin:0;
+    }
+    html{
+      width: 210mm;
+      height: 297mm;  
+      background-color: darkgray;
+    }
+    body {
+      width: 210mm;
+      height: 297mm;  
+      background-color:white;
+      margin: 20px; 
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Danh sách học sinh</h1>
+  <p>Giáo viên: <%= teacherName %></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Tên học sinh</th>
+        <th>Giới tính</th>
+        <th>Ngày tháng năm sinh</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.forEach(function(student) { %>
+        <tr>
+          <td><strong><%= student.name %></strong></td>
+          <td><%= student.gender %></td>
+          <td><%= student.dob %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
